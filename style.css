@@ -19,31 +19,25 @@
 
 *, *::before, *::after {
   box-sizing: border-box;
-}
-  
+} 
 * {
   margin: 0;
 }
-
 body {
   line-height: 1.5;
-  letter-spacing: 0;
+  /* letter-spacing: 0; */
   -webkit-font-smoothing: antialiased;
-}
-  
+}  
 img, picture, video, canvas, svg {
   display: block;
   max-width: 100%;
-}
-  
+}  
 input, button, textarea, select {
   font: inherit;
-}
-  
+} 
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-  
+  /* overflow-wrap: break-word; */
+} 
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
@@ -52,6 +46,8 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: poppins;
+  background-color: var(--clr-Very-Light-Gray);
+  color: var(--clr-Grayish-Blue);
   position: relative;
   height: 100vh;
   display: flex;
@@ -59,30 +55,85 @@ body {
 }
 
 .cards-container {
-  max-width: 295px;
-  background-color: var(--clr-Very-Light-Gray);
+  max-width: 314px;
+  width: calc(314px + 28px * 2);
+  padding-block: 5.75rem;
+}
+
+@media (min-width:1440px) {
+  .cards-container {
+    max-width: calc(314px * 3 + 28px * 6  + 2rem);
+  }
 }
 
 h1 {
-  color: var(--clr-Grayish-Blue)
+  font-weight: var(--f-weight-200);
 }
 
 h2 {
-  color: var(--clr-Very-Dark-Blue)
+  color: var(--clr-Very-Dark-Blue);
+  font-weight: var(--f-weight-600);
+}
+
+.general-description {
+  font-size: 15px;
+  margin-top: 1rem;
 }
 
 .cards {
   --cards-padding: 2.5rem;
-  --card-padding: 28px; 
+  --card-padding: 28px;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; 
+}
+
+@media (min-width:1440px) {
+  .cards {
+    flex-direction: row;
+  }
 }
 
 .card {
   background-color: white;
-  border: 1px solid;
   padding: var(--card-padding);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
+  height: 222px;
+  box-shadow: 0px 5px 20px 0px;
+  
 }
+
+.sub-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* @media (min-width:1440px) {
+  .sub-container {
+    flex-direction: row;
+  }
+} */
+
+.card:first-child {
+  border-top: 4px solid var(--clr-cyan) ;
+}
+
+.card:nth-child(2) {
+  border-top: 4px solid var(--clr-red) ;
+}
+
+.card:nth-child(3) {
+  border-top: 4px solid var(--clr-orange) ;
+}
+
+.card:last-child {
+  border-top: 4px solid var(--clr-blue) ;
+}
+
 
 h3 {
   color: var(--clr-Very-Dark-Blue);
@@ -91,10 +142,12 @@ h3 {
 .cards p {
   color: var(--clr-Grayish-Blue);
   margin-bottom: 1rem;
+  font-size: 12px;
+  font-weight: var(--f-weight-400);
 }
 
 img {
-  width: 64px;
+  width: 60px;
   align-self: flex-end;
 }
 
@@ -102,10 +155,14 @@ img {
 .attribution {
   font-size: 13px;
   text-align: center;
-  position: sticky;
-  bottom: 1.5rem;
+  position: fixed;
+  bottom: 0;
   left: 0;
-  right: 0; 
+  right: 0;
+  height: 2rem;
+  overflow: hidden;
+  z-index: 2;
+  background-color: white;
 }
 
 .attribution a {
